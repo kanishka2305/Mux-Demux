@@ -52,14 +52,53 @@ Y0=s1′s0′I <br>
 
 
 ## Program:
+```py
+1.Multiplexer
 
+module mux(I0,I1,I2,I3,s1,s0,y);
+input I0,I1,I2,I3,s0,s1;
+output y;
+wire p,q,r,s,s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(p,s1d,s0d,I0);
+and(q,s1d,s0,I1);
+and(r,s1,s0d,I2);
+and(s,s1,s0,I3);
+or(y,p,q,r,s);
+endmodule 
+
+2.Demultiplexer
+
+module demux(I,s1,s0,y3,y2,y1,y0);
+input I,s1,s0;
+output y3,y2,y1,y0;
+wire s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(y3,s1,s0,I);
+and(y2,s1,s0d,I);
+and(y1,s1d,s0,I);
+and(y0,s1d,s0d,I);
+endmodule 
+```
 
 ## RTL Schematic:
+## Multiplexer:
+![image](https://github.com/kanishka2305/Mux-Demux/assets/113497357/da16e0ed-dfde-48dd-a4e5-0c2a4c0fdc29)
+
+## Demultiplexer:
+![image](https://github.com/kanishka2305/Mux-Demux/assets/113497357/a9d6f76c-faee-4b39-9079-47a49e6870e0)
 
 
 
 
 ## Timing Diagram:
+## Multiplexer:
+![image](https://github.com/kanishka2305/Mux-Demux/assets/113497357/7301844a-ff92-43bb-9b01-8e3fed2c8fd8)
+
+## Demultiplexer:
+![image](https://github.com/kanishka2305/Mux-Demux/assets/113497357/4052618f-b244-463a-a452-3ca0ecf9207f)
 
 
 
